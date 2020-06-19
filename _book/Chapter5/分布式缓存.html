@@ -1,0 +1,812 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>第6节：分布式缓存 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="链路跟踪服务.html" />
+    
+    
+    <link rel="prev" href="数据访问层中间件.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="../Chapter1/">
+            
+                <a href="../Chapter1/">
+            
+                    
+                    第一章 概述
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.2.1" data-path="../Chapter1/云原生技术概述.html">
+            
+                <a href="../Chapter1/云原生技术概述.html">
+            
+                    
+                    第1节：云原生技术概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2.2" data-path="../Chapter1/中间件的定义.html">
+            
+                <a href="../Chapter1/中间件的定义.html">
+            
+                    
+                    第2节：中间件的定义
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="../Chapter2/">
+            
+                <a href="../Chapter2/">
+            
+                    
+                    第二章 中间件技术的发展历程及挑战
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.3.1" data-path="../Chapter2/中间件的起源.html">
+            
+                <a href="../Chapter2/中间件的起源.html">
+            
+                    
+                    第1节：中间件的起源
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.2" data-path="../Chapter2/互联网时代的中间件.html">
+            
+                <a href="../Chapter2/互联网时代的中间件.html">
+            
+                    
+                    第2节：互联网时代的中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.3" data-path="../Chapter2/云计算时代带来的变化.html">
+            
+                <a href="../Chapter2/云计算时代带来的变化.html">
+            
+                    
+                    第3节：云计算时代带来的变化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.4" data-path="../Chapter2/开源技术的兴起.html">
+            
+                <a href="../Chapter2/开源技术的兴起.html">
+            
+                    
+                    第4节：开源技术的兴起
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3.5" data-path="../Chapter2/云原生时代的中间件.html">
+            
+                <a href="../Chapter2/云原生时代的中间件.html">
+            
+                    
+                    第5节：云原生时代的中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="../Chapter3/">
+            
+                <a href="../Chapter3/">
+            
+                    
+                    第三章 云原生应用开发特点
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.4.1" data-path="../Chapter3/容器与编排.html">
+            
+                <a href="../Chapter3/容器与编排.html">
+            
+                    
+                    第1节：容器与编排
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4.2" data-path="../Chapter3/应用微服务化.html">
+            
+                <a href="../Chapter3/应用微服务化.html">
+            
+                    
+                    第2节：应用微服务化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4.3" data-path="../Chapter3/计算存储分离.html">
+            
+                <a href="../Chapter3/计算存储分离.html">
+            
+                    
+                    第3节：计算存储分离
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4.4" data-path="../Chapter3/服务网关.html">
+            
+                <a href="../Chapter3/服务网关.html">
+            
+                    
+                    第4节：服务网关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4.5" data-path="../Chapter3/分布式事务一致性.html">
+            
+                <a href="../Chapter3/分布式事务一致性.html">
+            
+                    
+                    第5节：分布式事务一致性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4.6" data-path="../Chapter3/数据切分.html">
+            
+                <a href="../Chapter3/数据切分.html">
+            
+                    
+                    第6节：数据切分
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4.7" data-path="../Chapter3/服务无状态化.html">
+            
+                <a href="../Chapter3/服务无状态化.html">
+            
+                    
+                    第7节：服务无状态化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5" data-path="../Chapter4/">
+            
+                <a href="../Chapter4/">
+            
+                    
+                    第四章 云原生中间件十要素
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.5.1" data-path="../Chapter4/容器原生.html">
+            
+                <a href="../Chapter4/容器原生.html">
+            
+                    
+                    第1节：容器原生
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.2" data-path="../Chapter4/服务状态.html">
+            
+                <a href="../Chapter4/服务状态.html">
+            
+                    
+                    第2节：服务状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.3" data-path="../Chapter4/组件模块化.html">
+            
+                <a href="../Chapter4/组件模块化.html">
+            
+                    
+                    第3节：组件模块化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.4" data-path="../Chapter4/事件驱动.html">
+            
+                <a href="../Chapter4/事件驱动.html">
+            
+                    
+                    第4节：事件驱动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.5" data-path="../Chapter4/可观测.html">
+            
+                <a href="../Chapter4/可观测.html">
+            
+                    
+                    第5节：可观测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.6" data-path="../Chapter4/韧性设计.html">
+            
+                <a href="../Chapter4/韧性设计.html">
+            
+                    
+                    第6节：韧性设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.7" data-path="../Chapter4/弹性伸缩.html">
+            
+                <a href="../Chapter4/弹性伸缩.html">
+            
+                    
+                    第7节：弹性伸缩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.8" data-path="../Chapter4/动态部署.html">
+            
+                <a href="../Chapter4/动态部署.html">
+            
+                    
+                    第8节：动态部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.9" data-path="../Chapter4/统一响应式与声明式API.html">
+            
+                <a href="../Chapter4/统一响应式与声明式API.html">
+            
+                    
+                    第9节：统一响应式与声明式API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.10" data-path="../Chapter4/平台化.html">
+            
+                <a href="../Chapter4/平台化.html">
+            
+                    
+                    第10节：平台化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    第五章 云原生中间件典型服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.6.1" data-path="分布式消息队列.html">
+            
+                <a href="分布式消息队列.html">
+            
+                    
+                    第1节：分布式消息队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6.2" data-path="分布式事物系统.html">
+            
+                <a href="分布式事物系统.html">
+            
+                    
+                    第2节：分布式事物系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6.3" data-path="分布式配置服务.html">
+            
+                <a href="分布式配置服务.html">
+            
+                    
+                    第3节：分布式配置服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6.4" data-path="API网关.html">
+            
+                <a href="API网关.html">
+            
+                    
+                    第4节：API网关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6.5" data-path="数据访问层中间件.html">
+            
+                <a href="数据访问层中间件.html">
+            
+                    
+                    第5节：数据访问层中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.1.6.6" data-path="分布式缓存.html">
+            
+                <a href="分布式缓存.html">
+            
+                    
+                    第6节：分布式缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6.7" data-path="链路跟踪服务.html">
+            
+                <a href="链路跟踪服务.html">
+            
+                    
+                    第7节：链路跟踪服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7" data-path="../Chapter6/">
+            
+                <a href="../Chapter6/">
+            
+                    
+                    第六章 云原生中间件发展趋势及展望
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.7.1" data-path="../Chapter6/技术架构上归于统一.html">
+            
+                <a href="../Chapter6/技术架构上归于统一.html">
+            
+                    
+                    第1节：技术架构上归于统一
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.2" data-path="../Chapter6/基础能力下沉，应用能力加深.html">
+            
+                <a href="../Chapter6/基础能力下沉，应用能力加深.html">
+            
+                    
+                    第2节：基础能力下沉，应用能力加深
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7.3" data-path="../Chapter6/云原生中间件领域标准化进程持续深入.html">
+            
+                <a href="../Chapter6/云原生中间件领域标准化进程持续深入.html">
+            
+                    
+                    第3节：云原生中间件领域标准化进程持续深入
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >第6节：分布式缓存</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x7B2C;6&#x8282;&#xFF1A;&#x5206;&#x5E03;&#x5F0F;&#x7F13;&#x5B58;">&#x7B2C;6&#x8282;&#xFF1A;&#x5206;&#x5E03;&#x5F0F;&#x7F13;&#x5B58;</h1>
+<p>&#x968F;&#x7740;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x98DE;&#x901F;&#x53D1;&#x5C55;&#xFF0C;&#x5404;&#x884C;&#x5404;&#x4E1A;&#x5BF9;&#x4E92;&#x8054;&#x7F51;&#x670D;&#x52A1;&#x7684;&#x8981;&#x6C42;&#x4E5F;&#x8D8A;&#x6765;&#x8D8A;&#x9AD8;&#xFF0C;&#x4E92;&#x8054;&#x7F51;&#x7CFB;&#x7EDF;&#x5F88;&#x591A;&#x5E38;&#x89C1;&#x7684;&#x5B58;&#x50A8;&#x7C7B;&#x573A;&#x666F;&#x90FD;&#x9762;&#x4E34;&#x7740;&#x5BB9;&#x91CF;&#x548C;&#x7A33;&#x5B9A;&#x6027;&#x98CE;&#x9669;&#x3002;&#x6B64;&#x65F6;&#xFF0C;&#x672C;&#x5730;&#x7F13;&#x5B58;&#x5DF2;&#x65E0;&#x6CD5;&#x6EE1;&#x8DB3;&#x9700;&#x8981;&#xFF0C;&#x5206;&#x5E03;&#x5F0F;&#x7F13;&#x5B58;&#x7531;&#x4E8E;&#x5176;&#x9AD8;&#x6027;&#x80FD;&#x3001;&#x9AD8;&#x53EF;&#x7528;&#x6027;&#x7B49;&#x4F18;&#x70B9;&#x8FC5;&#x901F;&#x8BB8;&#x591A;&#x516C;&#x53F8;&#x63A5;&#x53D7;&#x5E76;&#x4F7F;&#x7528;&#x3002;</p>
+<p><a href="https://www.leiue.com/tags/&#x5206;&#x5E03;&#x5F0F;&#x7F13;&#x5B58;" target="_blank">&#x5206;&#x5E03;&#x5F0F;&#x7F13;&#x5B58;</a>&#x662F;&#x4F20;&#x7EDF;<a href="https://www.leiue.com/tags/&#x7F13;&#x5B58;" target="_blank">&#x7F13;&#x5B58;</a>&#x6982;&#x5FF5;&#x7684;&#x6269;&#x5C55;&#xFF0C;&#x5176;&#x4E2D;&#x6570;&#x636E;&#x88AB;&#x653E;&#x7F6E;&#x5728;&#x672C;&#x5730;&#x7684;&#x4E34;&#x65F6;&#x5B58;&#x50A8;&#x4E2D;&#x4EE5;&#x4FBF;&#x5FEB;&#x901F;&#x68C0;&#x7D22;&#x3002;&#x5206;&#x5E03;&#x5F0F;&#x7F13;&#x5B58;&#x5728;&#x8303;&#x56F4;&#x4E0A;&#x662F;&#x66F4;&#x591A;<a href="https://www.leiue.com/tags/&#x4E91;&#x8BA1;&#x7B97;" target="_blank">&#x4E91;&#x8BA1;&#x7B97;</a>&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4E0D;&#x540C;&#x7684;&#x673A;&#x5668;&#x6216;&#x670D;&#x52A1;&#x5668;&#x5C06;&#x5176;&#x7F13;&#x5B58;&#x5185;&#x5B58;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x8D21;&#x732E;&#x5230;&#x53EF;&#x7531;&#x591A;&#x4E2A;&#x8282;&#x70B9;&#x548C;&#x865A;&#x62DF;&#x673A;&#x8BBF;&#x95EE;&#x7684;&#x5927;&#x578B;&#x6C60;&#x4E2D;&#x3002;&#x7F13;&#x5B58;&#x7684;&#x6982;&#x5FF5;&#x548C;&#x542B;&#x4E49;&#x4FDD;&#x6301;&#x4E0D;&#x53D8;;&#x5B83;&#x53EA;&#x662F;&#x521B;&#x5EFA;&#x5927;&#x6982;&#x5FF5;&#x548C;&#x6280;&#x672F;&#x76F8;&#x5BF9;&#x8F83;&#x65B0;&#x7684;&#x5927;&#x578B;&#x7F13;&#x5B58;&#x6C60;&#x7684;&#x8FC7;&#x7A0B;&#x3002;</p>
+<p>&#x5206;&#x5E03;&#x5F0F;&#x7F13;&#x5B58;&#x7531;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x7AEF;&#x5B9E;&#x73B0;&#x7BA1;&#x7406;&#x548C;&#x63A7;&#x5236;&#xFF0C;&#x6709;&#x591A;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x8282;&#x70B9;&#x5B58;&#x50A8;&#x6570;&#x636E;&#xFF0C;&#x53EF;&#x4EE5;&#x8FDB;&#x4E00;&#x6B65;&#x63D0;&#x9AD8;&#x6570;&#x636E;&#x7684;&#x8BFB;&#x53D6;&#x901F;&#x7387;&#x3002;&#x5206;&#x5E03;&#x5F0F;&#x7F13;&#x5B58;&#x80FD;&#x591F;&#x9AD8;&#x6027;&#x80FD;&#x5730;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x3001;&#x80FD;&#x591F;&#x52A8;&#x6001;&#x5730;&#x6269;&#x5C55;&#x7F13;&#x5B58;&#x8282;&#x70B9;&#x3001;&#x80FD;&#x591F;&#x81EA;&#x52A8;&#x53D1;&#x73B0;&#x548C;&#x5207;&#x6362;&#x6545;&#x969C;&#x8282;&#x70B9;&#x3001;&#x80FD;&#x591F;&#x81EA;&#x52A8;&#x5747;&#x8861;&#x6570;&#x636E;&#x5206;&#x533A;&#xFF0C;&#x800C;&#x4E14;&#x80FD;&#x591F;&#x4E3A;&#x4F7F;&#x7528;&#x8005;&#x63D0;&#x4F9B;&#x56FE;&#x5F62;&#x5316;&#x7684;&#x7BA1;&#x7406;&#x754C;&#x9762;&#xFF0C;&#x90E8;&#x7F72;&#x548C;&#x7EF4;&#x62A4;&#x90FD;&#x5341;&#x5206;&#x65B9;&#x4FBF;&#x3002;</p>
+<p>&#x5206;&#x5E03;&#x5F0F;&#x7F13;&#x5B58;&#x5E7F;&#x6CDB;&#x7528;&#x4E8E;&#x4E91;&#x8BA1;&#x7B97;&#x7CFB;&#x7EDF;&#x548C;<a href="https://www.leiue.com/tags/&#x865A;&#x62DF;&#x5316;&#x73AF;&#x5883;" target="_blank">&#x865A;&#x62DF;&#x5316;&#x73AF;&#x5883;</a>&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x51FA;&#x8272;&#x7684;&#x53EF;&#x6269;&#x5C55;&#x6027;&#x548C;&#x5BB9;&#x9519;&#x80FD;&#x529B;&#x3002;&#x5206;&#x5E03;&#x5F0F;&#x7F13;&#x5B58;&#x53EF;&#x4EE5;&#x8DE8;&#x8D8A;&#x591A;&#x4E2A;&#x8282;&#x70B9;&#x6216;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x8FD9;&#x5141;&#x8BB8;&#x5B83;&#x751F;&#x6210;&#x53EA;&#x9700;&#x6DFB;&#x52A0;&#x66F4;&#x591A;&#x670D;&#x52A1;&#x5668;&#x5373;&#x53EF;&#x5B9E;&#x73B0;&#x5BB9;&#x91CF;&#x3002;&#x4F20;&#x7EDF;&#x4E0A;&#xFF0C;&#x7F13;&#x5B58;&#x7528;&#x4F5C;&#x4FDD;&#x5B58;&#x548C;&#x68C0;&#x7D22;&#x6570;&#x636E;&#x7684;&#x975E;&#x5E38;&#x5FEB;&#x901F;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#x4F7F;&#x7528;&#x5FEB;&#x901F;&#x786C;&#x4EF6;&#x5B9E;&#x73B0;&#x7F13;&#x5B58;&#xFF0C;&#x6240;&#x8FF0;&#x5FEB;&#x901F;&#x786C;&#x4EF6;&#x9760;&#x8FD1;&#x4F7F;&#x7528;&#x5B83;&#x7684;&#x4EFB;&#x4F55;&#x4E1C;&#x897F;&#x3002;&#x5206;&#x5E03;&#x5F0F;&#x7F13;&#x5B58;&#x4E5F;&#x4F1A;&#x5B58;&#x5728;&#x4E00;&#x4E9B;&#x5E38;&#x89C1;&#x95EE;&#x9898;&#xFF1A;</p>
+<p>1.&#x7F13;&#x5B58;&#x7A7F;&#x900F;&#xFF0C;DB&#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x6570;&#x636E;&#xFF0C;&#x6BCF;&#x6B21;&#x90FD;&#x7A7F;&#x8FC7;&#x7F13;&#x5B58;&#x67E5;DB&#xFF0C;&#x9020;&#x6210;DB&#x7684;&#x538B;&#x529B;&#x3002;&#x4E00;&#x822C;&#x662F;&#x7F51;&#x7EDC;&#x653B;&#x51FB;&#x3002;</p>
+<p>2.&#x7F13;&#x5B58;&#x51FB;&#x7A7F;&#xFF0C;&#x5728;&#x7F13;&#x5B58;&#x5931;&#x6548;&#x7684;&#x77AC;&#x95F4;&#x5927;&#x91CF;&#x8BF7;&#x6C42;&#xFF0C;&#x9020;&#x6210;DB&#x7684;&#x538B;&#x529B;&#x77AC;&#x95F4;&#x589E;&#x5927;&#x3002;</p>
+<p>3.&#x7F13;&#x5B58;&#x96EA;&#x5D29;&#xFF0C;&#x5927;&#x91CF;&#x7F13;&#x5B58;&#x8BBE;&#x7F6E;&#x4E86;&#x76F8;&#x540C;&#x7684;&#x5931;&#x6548;&#x65F6;&#x95F4;&#xFF0C;&#x540C;&#x4E00;&#x65F6;&#x95F4;&#x5931;&#x6548;&#xFF0C;&#x9020;&#x6210;&#x670D;&#x52A1;&#x77AC;&#x95F4;&#x6027;&#x80FD;&#x6025;&#x5267;&#x4E0B;&#x964D;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="数据访问层中间件.html" class="navigation navigation-prev " aria-label="Previous page: 第5节：数据访问层中间件">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="链路跟踪服务.html" class="navigation navigation-next " aria-label="Next page: 第7节：链路跟踪服务">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"第6节：分布式缓存","level":"1.1.6.6","depth":3,"next":{"title":"第7节：链路跟踪服务","level":"1.1.6.7","depth":3,"path":"Chapter5/链路跟踪服务.md","ref":"Chapter5/链路跟踪服务.md","articles":[]},"previous":{"title":"第5节：数据访问层中间件","level":"1.1.6.5","depth":3,"path":"Chapter5/数据访问层中间件.md","ref":"Chapter5/数据访问层中间件.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Chapter5/分布式缓存.md","mtime":"2020-06-16T14:05:41.865Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-19T07:05:30.740Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
